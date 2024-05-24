@@ -65,12 +65,14 @@ class Torneo{
     }
 
     public function darGanadores($deporte){
+        $arrayExtra= [];
         if ($deporte == 'futbol' ){
-            $coleccionGanadores = $this->darPartidosFutbol();
+            $arrayExtra = $this->darPartidosFutbol();
         } else if ($deporte == 'basquet'){
-            $coleccionGanadores = $this->darPartidosBasquet();
+            $arrayExtra = $this->darPartidosBasquet();
         }
-        foreach ($this->getColeccionPartidos() as $objPartido){
+
+        foreach ($arrayExtra as $objPartido){
                 $coleccionGanadores[] = $objPartido->darEquipoGanador();
         }
         return $coleccionGanadores;
